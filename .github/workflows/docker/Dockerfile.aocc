@@ -18,7 +18,9 @@ RUN bash -c 'source spack/share/spack/setup-env.sh; \
     curl https://developer.amd.com/wordpress/media/files/AOCC_EULA.pdf -o spack/etc/spack/licenses/aocc/AOCC_EULA.pdf; \
     spack install aocc +license-agreed; \
     spack load aocc; \
-    spack compiler find; \
+    spack compiler find
+    '
+RUN bash -c 'source spack/share/spack/setup-env.sh; \
     ./firedrake-spack/spack_install_firedrake.sh firedrake py-firedrake@develop \
         %aocc \
         ^python@3.10: \
@@ -26,7 +28,7 @@ RUN bash -c 'source spack/share/spack/setup-env.sh; \
         ^amdblis \
         ^amdlibflame \
         ^amdscalapack \
-        ^firedrake.petsc@develop+fftw cflags=\"-O3 -march=native -mtune=native\" cxxflags=\"-O3 -march=native -mtune=native\" fflags=\"-O3 -march=native -mtune=native -ffree-line-length-512\" \
+        ^firedrake.petsc@develop+fftw cflags=\"-O3 -march=native -mtune=native\" cxxflags=\"-O3 -march=native -mtune=native\" fflags=\"-O3 -march=native -mtune=native\" \
     '
 # Basic functionality test
 RUN bash -c 'source spack/share/spack/setup-env.sh; \
