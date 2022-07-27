@@ -14,10 +14,11 @@ RUN bash -c "source spack/share/spack/setup-env.sh; \
     spack repo add firedrake-spack"
 # Install Firedrake
 RUN bash -c 'source spack/share/spack/setup-env.sh; \
-    spack install aocc; \
+    spack install aocc+license-agreed; \
     spack load aocc; \
+    spack compiler find; \
     ./firedrake-spack/spack_install_firedrake.sh firedrake py-firedrake@develop \
-        %aocc@3.2.0 \
+        %aocc \
         ^python@3.10: \
         ^mpich \
         ^amdblis \
