@@ -18,7 +18,7 @@ RUN bash -c 'source spack/share/spack/setup-env.sh; \
     curl https://developer.amd.com/wordpress/media/files/AOCC_EULA.pdf -o spack/etc/spack/licenses/aocc/AOCC_EULA.pdf; \
     spack install aocc +license-agreed; \
     spack load aocc; \
-    spack compiler find
+    spack compiler find \
     '
 RUN bash -c 'source spack/share/spack/setup-env.sh; \
     ./firedrake-spack/spack_install_firedrake.sh firedrake py-firedrake@develop \
