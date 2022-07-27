@@ -18,6 +18,10 @@ then
   # Reconcretize (in case dependencies have changed) and reinstall to update
   spack concretize -f 2>&1 | tee $SPACK_ENV/spack-firedrake-reconc.log
   spack install -v --fail-fast --show-log-on-error  2>&1 | tee $SPACK_ENV/spack-firedrake-update.log
+  if [ $? -ne 0 ]
+    cat $SPACK_ENV/petsc/configure.log
+  fi
+
   cd $RETURN_TO_DIR
 
   spack env deactivate
