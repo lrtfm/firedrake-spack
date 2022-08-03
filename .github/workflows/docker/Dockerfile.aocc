@@ -39,7 +39,7 @@ RUN bash -c 'source spack/share/spack/setup-env.sh; \
     spack add py-irksome; \
     spack add py-thetis; \
     spack add py-tinyasm; \
-    spack install;
+    spack install; \
     '
 # Basic functionality test
 RUN bash -c 'source spack/share/spack/setup-env.sh; \
