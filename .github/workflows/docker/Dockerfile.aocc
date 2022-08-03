@@ -9,7 +9,9 @@ USER firedrake
 WORKDIR /home/firedrake
 
 # Add Firedrake repo
-RUN git clone https://github.com/firedrakeproject/firedrake-spack.git
+RUN git clone https://github.com/firedrakeproject/firedrake-spack.git \
+    && cd firedrake-spack \
+    && git checkout -b setup_ci origin/setup_ci
 RUN bash -c "source spack/share/spack/setup-env.sh; \
     spack repo add firedrake-spack"
 # Install Firedrake
@@ -33,6 +35,7 @@ RUN bash -c 'source spack/share/spack/setup-env.sh; \
     '
 # Install Firedrake applications
 RUN bash -c 'source spack/share/spack/setup-env.sh; \
+    spack env activate firedrake; \
     spack add py-femlium; \
     spack add py-gusto; \
     spack add py-icepack; \
