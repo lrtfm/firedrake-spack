@@ -60,6 +60,8 @@ class Petsc(OrigPetsc):
     depends_on("netcdf-c+mpi", when="+netcdf-c")
     depends_on("parallel-netcdf", when="+parallel-netcdf")
 
+    patch("some_c11_c17_compilers_break.diff", when="@develop")
+
     def configure_options(self):
         options = super().configure_options()
         if "+chaco" in self.spec:
