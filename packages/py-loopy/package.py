@@ -17,7 +17,7 @@ class PyLoopy(EditablePythonPackage):
     version("develop", branch="main", submodules=True, no_cache=True)
 
     depends_on("py-setuptools", type=("build", "run"))
-    depends_on("py-pymbolic", type=("build", "run"))
+    depends_on("py-pymbolic@develop", type=("build", "run"))
     depends_on("py-cgen", type=("build", "run"))
     depends_on("py-genpy", type=("build", "run"))
     depends_on("py-codepy", type=("build", "run"))
@@ -25,5 +25,6 @@ class PyLoopy(EditablePythonPackage):
     depends_on("py-islpy", type=("build", "run"))
     depends_on("py-pyrsistent", type=("build", "run"))
     depends_on("py-ply", type=("build", "run"))
+    depends_on("py-immutables", type=("build", "run"))
 
     depends_on("firedrake.py-pytools", type=("build", "run"))
